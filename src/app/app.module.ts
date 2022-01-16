@@ -3,16 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { StoreModule } from '@ngrx/store';
+import * as fromReducer from "./store/app.reducer";
+import { LoadDataEffect } from './store/app.effects';
+import { EffectsModule } from '@ngrx/effects';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    SharedModule,
+    AppRoutingModule,
+    StoreModule.forRoot({ appStore: fromReducer.reducer }),
+    EffectsModule.forRoot([LoadDataEffect])
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
