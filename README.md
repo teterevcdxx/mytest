@@ -5,13 +5,13 @@
 ### - Adding universities to bookmarks
 ### - Remembering your bookmarks
 ### - Export bookmarks as .png image
----
+
 ## Technologies: 
 
 ### - Angular
 ### - NgRx
 ### - Material UI
---- 
+
 ## Screenshots:
 
 | ![space-1.jpg](src/assets/screen-2.png) | 
