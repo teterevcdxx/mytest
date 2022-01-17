@@ -1,8 +1,9 @@
-<div  *ngIf="(savedUniversities$ | async)?.length; else no_data">
+<div *ngIf="(savedUniversities$ | async)?.length; else no_data">
+
 <div *ngFor="let item of savedUniversities$ | async">
     <mat-card>
         <mat-card-title><a href="{{item.web_pages[0]}}" target="_blank"><mat-icon class="teal-button" aria-hidden="false" aria-label="link">link</mat-icon>{{item.name}}</a></mat-card-title>
-        <!-- <mat-card-subtitle></mat-card-subtitle> -->
+        <mat-card-subtitle>{{item.country}}</mat-card-subtitle>
        
         <mat-card-actions align="end">
           <button mat-icon-button (click)="removeBookmark(item)">
@@ -23,7 +24,3 @@
   </div>
 </ng-template>
 
-<div id="download">
-  <img #canvas>
-  <a #downloadLink></a>
-</div>

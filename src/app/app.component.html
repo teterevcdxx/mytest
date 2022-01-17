@@ -3,10 +3,14 @@
         <img src="./assets/logo.png" alt="" (click)="goToHome()">
     </div>
     <div class="button">
-        <button mat-icon-button [matBadge]="(savedCount$ | async)"(click)="goToSaved();"><mat-icon class="red-button" aria-hidden="false" aria-label="Example home icon">bookmarks</mat-icon>
+        <button mat-icon-button matTooltip="Bookmarks" [matBadge]="(savedCount$ | async)"(click)="goToSaved();"><mat-icon class="red-button" aria-hidden="false" aria-label="Example home icon">bookmarks</mat-icon>
         </button>    
     </div>
 </div>
 <div class="router">
     <router-outlet></router-outlet>
 </div>
+
+<button mat-fab class="fab-button" matTooltip="Export bookmarks" *ngIf="(savedCount$ | async) != 0" class="export-button" aria-label="Example icon button with a home icon" (click)="export()">
+    <mat-icon>file_download</mat-icon>
+</button>

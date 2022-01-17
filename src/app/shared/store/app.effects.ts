@@ -10,6 +10,8 @@ import { of } from "rxjs";
 import { NotificationService } from "../../services/notification.service";
 import * as _ from 'lodash'
 import { LocalStorageService } from "../../services/local-storage.service";
+import { MatDialog } from "@angular/material/dialog";
+import { ExportComponent } from "../export/export.component";
 
 @Injectable()
 export class LoadDataEffect {
@@ -63,12 +65,23 @@ export class LoadDataEffect {
             )
         }, { dispatch: false }
     )
+
+    exportBookmarks$ = createEffect(
+        () => {
+            return this.actions$.pipe(
+                ofType(AppActions.exportBookmarks),
+                tap((univercity) => {
+                 this.dialog.open(ExportComponent);  
+                })
+            )
+        }, { dispatch: false }
+    )
     constructor(
         private actions$: Actions,
         private restService: RestService,
         private notificationService: NotificationService,
-        private localStorageService: LocalStorageService
-
+        private localStorageService: LocalStorageService,
+        private dialog: MatDialog
     ) { }
 
 }

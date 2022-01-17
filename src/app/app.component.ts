@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AppActions } from './shared/store/app.actions';
 import { AppSelectors } from './shared/store/app.selectors';
 
 
@@ -20,5 +21,8 @@ export class AppComponent {
   }
   goToHome(){
     this.router.navigateByUrl('')
+  }
+  export(){
+    this.store.dispatch(AppActions.exportBookmarks())
   }
 }

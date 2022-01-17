@@ -1,0 +1,20 @@
+.favourites-to-export{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    width: auto;    
+    &.-title{
+        
+    }
+}
+.favourites-to-export-title{
+    display: flex;
+    border-bottom: firebrick solid !important;
+    img{
+        width: 100px;
+        margin-right: 5px;
+    }
+}
+#download{
+    display: none;
+}

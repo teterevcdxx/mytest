@@ -1,0 +1,29 @@
+
+<div id="download">
+    <img #canvas>
+    <a #downloadLink></a>
+  </div>
+  
+<div class="favourites-to-export">
+    <div #screen>
+    <mat-list >
+      <mat-list-item class="favourites-to-export-title">
+        <div class="logo">
+          <img src="./assets/logo.png"  alt="">
+        </div>  
+        <div class="caption">
+         | My favorites
+        </div>
+      </mat-list-item>
+      <mat-list-item *ngFor="let item of savedUniversities$ | async">
+           <div mat-line style="font-size:20px; font-weight: 500;">{{item.name}}</div>
+           <div mat-line>{{item.country}}</div>
+        </mat-list-item>
+     </mat-list>
+    </div>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="export()">Export</button>
+  </mat-dialog-actions>
+ 

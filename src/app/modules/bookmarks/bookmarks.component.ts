@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-
-
 import { Observable } from 'rxjs';
 import { FadeIn } from 'src/app/shared/animations';
 import { IUniversity } from 'src/app/shared/models/univercity.model';
@@ -15,16 +14,18 @@ import { AppSelectors } from 'src/app/shared/store/app.selectors';
   animations: [FadeIn]
 })
 export class BookmarksComponent implements OnInit { 
+
   public savedUniversities$: Observable<IUniversity[]>
-  constructor(private store: Store) { 
+  
+  constructor(private store: Store, private dialog: MatDialog) { 
     this.savedUniversities$ = this.store.select(AppSelectors.savedUnivercities);
   }
   ngOnInit(): void {
     
   }
   public removeBookmark(element: IUniversity){
- 
     this.store.dispatch(AppActions.removeUniversity(element))
   }
+
 
 }
