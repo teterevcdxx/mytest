@@ -2,14 +2,14 @@ import { Injectable } from "@angular/core";
 // import { MatDialog } from "@angular/material/dialog";
 import { act, Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
-import { ISearchQwery } from "../shared/models/search.model";
-import { RestService } from "../services/rest.service";
+import { ISearchQwery } from "../models/search.model";
+import { RestService } from "../../services/rest.service";
 
 import { AppActions } from "./app.actions";
 import { of } from "rxjs";
-import { NotificationService } from "../services/notification.service";
+import { NotificationService } from "../../services/notification.service";
 import * as _ from 'lodash'
-import { LocalStorageService } from "../services/local-storage.service";
+import { LocalStorageService } from "../../services/local-storage.service";
 
 @Injectable()
 export class LoadDataEffect {

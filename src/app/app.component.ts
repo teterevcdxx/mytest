@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppSelectors } from './store/app.selectors';
+import { AppSelectors } from './shared/store/app.selectors';
 
 
 @Component({

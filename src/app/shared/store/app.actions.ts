@@ -1,6 +1,6 @@
 import { Action, createAction, props } from "@ngrx/store";
-import { IGetUnivercityData, ISearchQwery } from "../shared/models/search.model";
-import { IUniversity } from "../shared/models/univercity.model";
+import { IGetUnivercityData, ISearchQwery } from "../models/search.model";
+import { IUniversity } from "../models/univercity.model";
 
 export enum UniversitiesActions {
     SAVE_SEARCH_QWERY = '[List page] Save search qwery',

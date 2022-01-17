@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 import { debounceTime, distinctUntilChanged, map, Observable, startWith } from 'rxjs';
 import { ISearchQwery } from 'src/app/shared/models/search.model';
 import { IUniversity } from 'src/app/shared/models/univercity.model';
-import { AppActions } from 'src/app/store/app.actions';
-import { AppSelectors } from 'src/app/store/app.selectors';
+import { AppActions } from 'src/app/shared/store/app.actions';
+import { AppSelectors } from 'src/app/shared/store/app.selectors';
 import { COUNTRIES } from 'src/assets/countries';
 import { SubSink } from 'subsink'
 
@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
   public searchForm = new FormGroup({
     searchedCountry: new FormControl(''),
     searchedUniversity: new FormControl('')
-  })
+  });
 
   constructor(private store: Store, private router: Router) {
     this.universities$ = this.store.select(AppSelectors.univercities);
@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
         }
       }),
       this.currentSearched$.subscribe((search: ISearchQwery) => {
-        this.searchForm.setValue(search);
+        this.searchForm.patchValue({searchedCountry: search.searchedCountry, searchedUniversity: search.searchedUniversity},{emitEvent: false})
       })
     )
     this.filteredCountries$ = this.searchForm.controls["searchedCountry"].valueChanges.pipe(

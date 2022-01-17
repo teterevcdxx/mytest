@@ -8,8 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class NotificationService {
 
   constructor(private notifier: MatSnackBar) {
-
-   }
+  }
 
   public showMessage(message: string){
     this.notifier.open(message, '', {

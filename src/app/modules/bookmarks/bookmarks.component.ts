@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { FadeIn } from 'src/app/shared/animations';
 import { IUniversity } from 'src/app/shared/models/univercity.model';
-import { AppActions } from 'src/app/store/app.actions';
-import { AppSelectors } from 'src/app/store/app.selectors';
+import { AppActions } from 'src/app/shared/store/app.actions';
+import { AppSelectors } from 'src/app/shared/store/app.selectors';
 
 @Component({
   selector: 'app-bookmarks',
@@ -16,10 +16,6 @@ import { AppSelectors } from 'src/app/store/app.selectors';
 })
 export class BookmarksComponent implements OnInit { 
   public savedUniversities$: Observable<IUniversity[]>
-  @ViewChild('bookmarks') bookmarks: ElementRef;
-  @ViewChild('canvas') canvas: ElementRef;
-  @ViewChild('downloadLink') downloadLink: ElementRef;
-
   constructor(private store: Store) { 
     this.savedUniversities$ = this.store.select(AppSelectors.savedUnivercities);
   }
@@ -27,7 +23,7 @@ export class BookmarksComponent implements OnInit {
     
   }
   public removeBookmark(element: IUniversity){
-    console.log(element)
+ 
     this.store.dispatch(AppActions.removeUniversity(element))
   }
 

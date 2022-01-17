@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store"
-import { IUniversity } from "../shared/models/univercity.model";
-import { ISearchQwery } from "../shared/models/search.model";
+import { IUniversity } from "../models/univercity.model";
+import { ISearchQwery } from "../models/search.model";
 import { AppActions } from "./app.actions"
 
 export interface IState{

@@ -1,5 +1,3 @@
-<div class="header">
-
     <div class="form">
         <form [formGroup]="searchForm">
             <mat-form-field appearance="standard">
@@ -18,13 +16,9 @@
                 <input matInput formControlName="searchedUniversity" type="text" name="" id="">
             </mat-form-field>
         </form>
-
-
     </div>
-</div>
 <ng-container *ngIf="(universities$ | async)?.length; else no_data">
     <div *ngFor="let item of universities$ | async">
-
         <mat-card @fadeIn>
             <mat-card-title><a href="{{item.web_pages[0]}}" target="_blank">
                     <mat-icon class="teal-button" aria-hidden="false" aria-label="link">link</mat-icon>
@@ -38,12 +32,9 @@
                 <button mat-icon-button (click)="saveBookmark(item)" *ngIf="!item.saved">
                     <mat-icon aria-hidden="false" aria-label="remove favorite">favorite_border</mat-icon>
                 </button>
-
             </mat-card-actions>
         </mat-card>
     </div>
-
-
 </ng-container>
 
 <ng-template #no_data>
