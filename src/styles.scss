@@ -61,3 +61,14 @@ mat-list-item{
     background-color: #D24444;
     color: white;
 }
+
+.responsive-layout{
+    width: 100%;
+    margin: auto;
+}
+@media (min-width:1025px){
+    .responsive-layout{
+        width: 50%;
+        margin: auto;
+    }   
+}

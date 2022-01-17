@@ -1,4 +1,4 @@
-<div *ngIf="(savedUniversities$ | async)?.length; else no_data">
+<div class="responsive-layout" *ngIf="(savedUniversities$ | async)?.length; else no_data">
 
 <div *ngFor="let item of savedUniversities$ | async">
     <mat-card>

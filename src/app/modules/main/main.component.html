@@ -1,4 +1,7 @@
-    <div class="form">
+  <div class="responsive-layout">
+
+  
+  <div class="form">
         <form [formGroup]="searchForm">
             <mat-form-field appearance="standard">
                 <mat-label>Country</mat-label>
@@ -17,6 +20,7 @@
             </mat-form-field>
         </form>
     </div>
+    <div>
 <ng-container *ngIf="(universities$ | async)?.length; else no_data">
     <div *ngFor="let item of universities$ | async">
         <mat-card @fadeIn>
@@ -36,7 +40,7 @@
         </mat-card>
     </div>
 </ng-container>
-
+</div>
 <ng-template #no_data>
     <div class="no-data">
         <div class="no-data-message">
