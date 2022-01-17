@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { debounceTime, distinctUntilChanged, map, Observable, startWith } from 'rxjs';
-import { ISearchQwery } from 'src/app/shared/models/search.model';
+import { ISearchQuery } from 'src/app/shared/models/search.model';
 import { IUniversity } from 'src/app/shared/models/univercity.model';
 import { AppActions } from 'src/app/shared/store/app.actions';
 import { AppSelectors } from 'src/app/shared/store/app.selectors';
@@ -31,19 +31,19 @@ export class MainComponent implements OnInit {
   }
   filteredCountries$: Observable<string[]>
   universities$: Observable<IUniversity[]>;
-  currentSearched$: Observable<ISearchQwery>;
+  currentSearched$: Observable<ISearchQuery>;
 
   ngOnInit(): void {
     this.subs.add(
       this.searchForm.valueChanges.pipe(
         debounceTime(500),
         distinctUntilChanged(),
-      ).subscribe((value: ISearchQwery) => {
+      ).subscribe((value: ISearchQuery) => {
         if (value.searchedCountry?.length) {
           this.store.dispatch(AppActions.loadUniversities({ searchedCountry: value.searchedCountry, searchedUniversity: value.searchedUniversity }));
         }
       }),
-      this.currentSearched$.subscribe((search: ISearchQwery) => {
+      this.currentSearched$.subscribe((search: ISearchQuery) => {
         this.searchForm.patchValue({searchedCountry: search.searchedCountry, searchedUniversity: search.searchedUniversity},{emitEvent: false})
       })
     )

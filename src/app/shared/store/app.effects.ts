@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 // import { MatDialog } from "@angular/material/dialog";
 import { act, Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
-import { ISearchQwery } from "../models/search.model";
+import { ISearchQuery } from "../models/search.model";
 import { RestService } from "../../services/rest.service";
 
 import { AppActions } from "./app.actions";
@@ -20,7 +20,7 @@ export class LoadDataEffect {
         () => {
             return this.actions$.pipe(
                 ofType(AppActions.loadUniversities),
-                mergeMap((action: ISearchQwery) => {
+                mergeMap((action: ISearchQuery) => {
                     return this.restService.getUniversities(action).pipe(
                         map((university: any[]) => {
                             university = _.uniqBy(university, (el) => {

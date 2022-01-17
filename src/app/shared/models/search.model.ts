@@ -1,4 +1,4 @@
-export interface ISearchQwery {
+export interface ISearchQuery {
     searchedCountry?: string;
     searchedUniversity?: string;
 }

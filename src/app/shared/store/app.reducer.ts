@@ -1,10 +1,10 @@
 import { Action, createReducer, on } from "@ngrx/store"
 import { IUniversity } from "../models/univercity.model";
-import { ISearchQwery } from "../models/search.model";
+import { ISearchQuery } from "../models/search.model";
 import { AppActions } from "./app.actions"
 
 export interface IState{
-    currentSearch: ISearchQwery,
+    currentSearch: ISearchQuery,
     savedCount: number,
     universities: IUniversity[],
     savedUniversities: IUniversity[],
