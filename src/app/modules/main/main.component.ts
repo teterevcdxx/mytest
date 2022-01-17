@@ -38,7 +38,6 @@ export class MainComponent implements OnInit {
       this.searchForm.valueChanges.pipe(
         debounceTime(500),
         distinctUntilChanged(),
-        startWith('')
       ).subscribe((value: ISearchQwery) => {
         if (value.searchedCountry?.length) {
           this.store.dispatch(AppActions.loadUniversities({ searchedCountry: value.searchedCountry, searchedUniversity: value.searchedUniversity }));
