@@ -11,6 +11,6 @@
     <router-outlet></router-outlet>
 </div>
 
-<button mat-fab class="fab-button" matTooltip="Export bookmarks" *ngIf="(savedCount$ | async) != 0" class="export-button" aria-label="Example icon button with a home icon" (click)="export()">
+<button mat-fab  matTooltip="Export bookmarks" *ngIf="(savedCount$ | async) != 0" class="export-button" aria-label="Example icon button with a home icon" (click)="export()">
     <mat-icon>file_download</mat-icon>
 </button>
