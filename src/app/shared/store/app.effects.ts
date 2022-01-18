@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 // import { MatDialog } from "@angular/material/dialog";
 import { act, Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, map, mergeMap, tap } from 'rxjs/operators';
+import { catchError, delay, exhaustMap, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { ISearchQuery } from "../models/search.model";
 import { RestService } from "../../services/rest.service";
 
@@ -20,8 +20,9 @@ export class LoadDataEffect {
         () => {
             return this.actions$.pipe(
                 ofType(AppActions.loadUniversities),
-                mergeMap((action: ISearchQuery) => {
+                exhaustMap((action: ISearchQuery) => {
                     return this.restService.getUniversities(action).pipe(
+                        delay(1000),
                         map((university: any[]) => {
                             university = _.uniqBy(university, (el) => {
                                 return el.name
@@ -71,7 +72,7 @@ export class LoadDataEffect {
             return this.actions$.pipe(
                 ofType(AppActions.exportBookmarks),
                 tap((univercity) => {
-                 this.dialog.open(ExportComponent);  
+                    this.dialog.open(ExportComponent);
                 })
             )
         }, { dispatch: false }
