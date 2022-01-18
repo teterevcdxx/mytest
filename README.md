@@ -16,7 +16,7 @@
 
 | ![space-1.jpg](src/assets/screen-2.png) | 
 |:--:| 
-| *Main interface* |
+| *Main page ui* |
 |![exported-img](src/assets/screen-1.png) |
 | *Exported image png* |
 
